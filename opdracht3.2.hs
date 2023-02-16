@@ -5,3 +5,7 @@ import Data.List
 dubbelen :: [a] -> [a]
 dubbelen s
 
+
+
+
+AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
