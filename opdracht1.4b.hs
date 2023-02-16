@@ -11,3 +11,13 @@ import Data.Bits
 fastmult :: Integer -> Integer -> Integer
 fastmult x 1 = x
 fastmult x y = fastmult 5 y-1
+
+
+
+russianPeasant :: (Integral a, Bits a) => a -> a -> a
+russianPeasant a b = go a b 0
+  where
+    go a b acc
+      | a == 0 = acc
+      | odd a = go (shiftR a 1) (shiftL b 1) (acc + b)
+      | otherwise = go (shiftR a 1) (shiftL b 1) acc
