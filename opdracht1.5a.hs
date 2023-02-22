@@ -1,4 +1,4 @@
-module Opdracht1Point5a where
+    module Opdracht1Point5a where
 
 pow :: Integer -> Integer -> Integer
 pow x 0 = 1
