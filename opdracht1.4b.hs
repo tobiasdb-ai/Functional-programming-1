@@ -1,18 +1,16 @@
 module Opdracht1Point4b where
 
 import Data.Bits
+import Control.Monad.Trans.Cont (shiftT)
 -- https://hackage.haskell.org/package/base-4.17.0.0/docs/Data-Bits.html
 -- https://www.geeksforgeeks.org/russian-peasant-multiply-two-numbers-using-bitwise-operators/
 
--- fastmult :: Integer -> Integer -> Integer
--- fastmult x 1 = x
--- fastmult x y = fastmult (shiftL x 1) (shiftR y 1)
-
 fastmult :: Integer -> Integer -> Integer
-fastmult x 1 = x
-fastmult x y = fastmult 5 y-1
-
-
+fastmult x y
+  | y == 0 = 0
+  | even y = c
+  | otherwise = x + c
+  where c = fastmult (shiftL x 1) (shiftR y 1)
 
 russianPeasant :: (Integral a, Bits a) => a -> a -> a
 russianPeasant a b = go a b 0
@@ -40,3 +38,5 @@ If a is even, halve a and double b, and return acc unchanged. This is equivalent
 The function keeps recursively calling itself until a becomes 0, which is the base case of the recursion. At that point, it returns the accumulated product acc.
 
 The go function is tail-recursive, which means that it can be optimized by the Haskell compiler to use constant stack space, even for large inputs.--}
+
+
