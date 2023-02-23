@@ -9,3 +9,8 @@ fastpow x p
   | even p = c
   | otherwise = x * c
   where c = fastpow (x * x) (shiftR p 1)
+
+{--
+ghci> pow 1234567890 1234567890
+*** Exception: stack overflow
+--}
