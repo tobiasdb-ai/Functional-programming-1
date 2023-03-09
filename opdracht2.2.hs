@@ -24,5 +24,12 @@ e p q = maximum [e|e<-[1..(eulersTotient p q)-1], euclid e (eulersTotient p q) =
 -- e = 2245
 
 -- d :: Integer -> Integer -> Integer
-d e eulersTotient = [dPossiblity|dPossiblity<-[1..(1 `mod` eulersTotient)], e * dPossiblity == (1 `mod` eulersTotient)]
+-- d e eulersTotient = [dPossiblity|dPossiblity<-[1..100000], e * dPossiblity == (1 `mod` eulersTotient)]
+d e eulersTotient = [d|d<-[1..100000], (((d*e) - 1) `div` eulersTotient) `mod` 0]
+
+
+-- a ­≅ b `mod` c
+-- congruency :: Integer -> Integer -> Integer -> Bool
+congruency a b c = ((a - b) / c) `mod` 0
+
 
