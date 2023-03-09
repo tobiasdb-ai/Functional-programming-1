@@ -1,7 +1,6 @@
 module Opdracht1Point4b where
 
 import Data.Bits
-import Control.Monad.Trans.Cont (shiftT)
 -- https://hackage.haskell.org/package/base-4.17.0.0/docs/Data-Bits.html
 -- https://www.geeksforgeeks.org/russian-peasant-multiply-two-numbers-using-bitwise-operators/
 
