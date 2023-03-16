@@ -60,7 +60,7 @@ message = 23
 -- 2: Encrypt encrypted message with Bobs public key
 -- Send message
 -- 3: Decrypt encrypted message with Bobs private key
--- 4: Decrypt encrypted message with Alices private key
+-- 4: Decrypt encrypted message with Alices public key
 
 -- step1 = rsaencrypt (eA, mA) message
 -- step2 = rsaencrypt (dB, mB) step1
