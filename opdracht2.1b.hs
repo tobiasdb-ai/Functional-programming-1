@@ -28,8 +28,8 @@ egcd a b =
     let (g, s, t) = egcd (b `mod` a) a
     in (g, t - (b `div` a) * s, s)
 
-test :: Integer -> Integer -> (Integer,Integer,Integer)
-test a b = 
+egcdAlwaysPositive :: Integer -> Integer -> (Integer,Integer,Integer)
+egcdAlwaysPositive a b = 
     let (g, s, t) = egcd a b
     in if s < 0 || t < 0 then (g, s+a*b, t+a*b) else (g, s, t)
 
