@@ -1,34 +1,17 @@
 module Opdracht3Point1b where
 
--- integreer :: (Double -> Double) -> Double -> Double -> Double -> Double
--- integreer f a b p = sum []
--- integreer f a b p = 
---     let d = (b-a)/p
---     in d
+-- Bron: https://en.wikipedia.org/wiki/Riemann_sum
 
--- integreer f a b p =
---     let d = (b-a)/p 
---     in [a+(q*d)-0.5*d|q<-[1..p]]
-
-integreerx f a b p =
-    let d = (b-a)/p 
-    in [a+(q*d)-0.5*d|q<-[1..p]]
-
--- integreer f a b p =
---     let d = (b-a)/p 
---     in [f (a+(q*d)-0.5*d)|q<-[1..p]]
-
--- integreer f a b p =
---     let d = (b-a)/p 
---     in sum $zipWith (*) [a+(q*d)-0.5*d|q<-[1..p]] [f (a+(q*d)-0.5*d)|q<-[1..p]]
-
-integreer f a b p =
-    let d = (b-a)/p 
-    in [f (a+(q*d)-0.5*d)|q<-[1..p]]
-
-g :: Double -> Double
-g x = x +2
-
--- hint 1: https://nl.wikipedia.org/wiki/Riemannintegratie
+-- hint 1: https://en.wikipedia.org/wiki/Riemann_sum
 -- hint 2: p = 0.0001
+
+-- xis return all xi values that correspond with a, b and p
+
+xis :: Double -> Double -> Double -> [Double]
+xis a b p = [a+((b-a)*p*i)|i<-[0..(1/p)-1]]
+
+integreer :: (Double -> Double) -> Double -> Double -> Double -> Double
+integreer f a b p =
+    let dxi = (b-a)*p
+    in sum [(f xi) * dxi|xi<-(xis a b p)]
 
