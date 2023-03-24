@@ -2,16 +2,14 @@ module Opdracht3Point2 where
 
 import Data.List
 
-lengthGreaterThanOne x = if length x > 1 then True else False
 
 -- dubbelen :: [a] -> [a]
+dubbelen :: Eq a => [a] -> [a]
+dubbelen s = nub (s \\ (nub s))
 
+-- Only works with second typeclass
 
-dubbelen :: Ord a => [a] -> [a]
-dubbelen s = (concat (filter lengthGreaterThanOne ((group (sort s)))))
-
-
--- zip s [1..]
--- ghci> concat (group (sort s))
-
--- (zip ((group (sort s))) (map (length) (group (sort s))))
+{--
+    ghci> dubbelen "aabbbcdeeeef"
+    "abe"
+--}
