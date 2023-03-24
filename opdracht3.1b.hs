@@ -15,3 +15,10 @@ integreer f a b p =
     let dxi = (b-a)*p
     in sum [(f xi) * dxi|xi<-(xis a b p)]
 
+{--
+    ghci> g x = x*x + 4            
+    ghci> integreer g 2 3 0.0001
+    10.333083335000017
+    ghci>
+--}
+
