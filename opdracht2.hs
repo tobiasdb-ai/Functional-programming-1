@@ -58,13 +58,15 @@ decryptchar (d, m) x = chr (fromInteger (rsadecrypt (d, m) x))
 
 {--
 
-Generate public and private keys.
+Choose random prime numbers.
 
 pA = 19
 qA = 23
 
 pB = 17
 qB = 103
+
+Generate public and private keys.
 
 mA = m pA qA
 eA = e pA qA
